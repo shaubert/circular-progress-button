@@ -33,6 +33,7 @@ class MorphingAnimation {
 
     private TextView mView;
     private StrokeGradientDrawable mDrawable;
+    private AnimatorSet animatorSet;
 
     public MorphingAnimation(TextView viewGroup, StrokeGradientDrawable drawable) {
         mView = viewGroup;
@@ -119,7 +120,7 @@ class MorphingAnimation {
         ObjectAnimator cornerAnimation =
                 ObjectAnimator.ofFloat(gradientDrawable, "cornerRadius", mFromCornerRadius, mToCornerRadius);
 
-        AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet = new AnimatorSet();
         animatorSet.setDuration(mDuration);
         animatorSet.playTogether(widthAnimation, bgColorAnimation, strokeColorAnimation, cornerAnimation);
         animatorSet.addListener(new Animator.AnimatorListener() {
@@ -146,5 +147,11 @@ class MorphingAnimation {
             }
         });
         animatorSet.start();
+    }
+
+    public void cancel() {
+        if (animatorSet != null && animatorSet.isRunning()) {
+            animatorSet.cancel();
+        }
     }
 }

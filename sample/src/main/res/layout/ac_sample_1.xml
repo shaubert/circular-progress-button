@@ -26,7 +26,8 @@
         android:textSize="18sp"
         app:cpb_cornerRadius="48dp"
         app:cpb_iconComplete="@drawable/ic_action_accept"
-        app:cpb_iconError="@drawable/ic_action_cancel"
+        app:cpb_iconProgress="@drawable/ic_action_cancel"
+        app:cpb_colorProgress="@android:color/transparent"
         app:cpb_textIdle="@string/Upload" />
 
 </LinearLayout>

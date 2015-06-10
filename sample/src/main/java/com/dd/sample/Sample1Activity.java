@@ -48,9 +48,9 @@ public class Sample1Activity extends Activity {
             @Override
             public void onClick(View v) {
                 if (circularButton2.getProgress() == 0) {
-                    circularButton2.setProgress(50);
+                    circularButton2.setProgress(1);
                 } else if (circularButton2.getProgress() == -1) {
-                    circularButton2.setProgress(0);
+                    circularButton2.setProgress(1);
                 } else {
                     circularButton2.setProgress(-1);
                 }
