@@ -44,6 +44,7 @@ public class CircularProgressButton extends Button {
     private int mMaxProgress;
     private int mProgress;
 
+    private State mDestState;
     private MorphingAnimation morphingAnimation;
     private boolean mMorphingInProgress;
 
@@ -303,6 +304,10 @@ public class CircularProgressButton extends Button {
         if (destState == mState) {
             invalidate();
         }
+        if (this.mDestState == destState) {
+            return;
+        }
+        this.mDestState = destState;
 
         if (mMorphingInProgress && morphingAnimation != null) {
             morphingAnimation.cancel();
