@@ -457,6 +457,14 @@ public class CircularProgressButton extends Button {
         if (changed) {
             mProgressDrawable = null;
             mAnimatedDrawable = null;
+
+            if (mMorphingInProgress) {
+                mMorphingInProgress = false;
+                if (morphingAnimation != null) {
+                    morphingAnimation.cancel();
+                }
+            }
+
             setProgress(mProgress, true);
         }
     }
