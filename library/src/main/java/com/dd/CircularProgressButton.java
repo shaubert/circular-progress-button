@@ -455,6 +455,8 @@ public class CircularProgressButton extends Button {
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
         if (changed) {
+            mProgressDrawable = null;
+            mAnimatedDrawable = null;
             setProgress(mProgress, true);
         }
     }
