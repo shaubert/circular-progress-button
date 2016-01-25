@@ -301,13 +301,14 @@ public class CircularProgressButton extends Button {
     }
 
     private void morphTo(State destState, boolean instant) {
-        if (destState == mState) {
-            invalidate();
-        }
         if (this.mDestState == destState) {
             return;
         }
         this.mDestState = destState;
+
+        if (destState == mState) {
+            instant = true;
+        }
 
         if (mMorphingInProgress && morphingAnimation != null) {
             morphingAnimation.cancel();
